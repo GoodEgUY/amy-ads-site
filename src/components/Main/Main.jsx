@@ -10,12 +10,12 @@ function Main() {
           <img src="./images/logo.png" alt="" className="ava" />
 
           <div className="dashbord">
-{/*             <a href="https://instagram.com/amy_shop_kharkiv?igshid=MzRlODBiNWFlZA==">
+            <a href="https://instagram.com/amy_shop_kharkiv?igshid=MzRlODBiNWFlZA==">
               <div className="button">
                 <p>INSTAGRAM</p>
                 <img src="./images/inst.png" alt="" className="ico" />
               </div>
-            </a> */}
+            </a>
             <a href="https://t.me/amy_shop_kh">
               <div className="button">
                 <p>TELEGRAM</p>
