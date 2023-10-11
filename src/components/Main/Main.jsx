@@ -1,19 +1,13 @@
 import "./main.css";
-
+import axios from "axios";
 function Main() {
-  const [leadSource, setLeadSource] = useState("");
- 
-
   const botToken = "6469582452:AAFPwZGy8Khu_pS1CuERcCAL99enW2_Cv70";
   const urlApi = `https://api.telegram.org/bot${botToken}/sendMessage`;
   const chatId = "-1001922657212";
-  const [success, setSuccess] = useState("");
 
-  const sendAlert = (e, source) => {
-    e.preventDefault();
-    setLeadSource(source)
-    let message = `<b>Новый лид: ${leadSource}</b>\n`;
-  
+  const sendAlert = () => {
+    let message = `<b>Новый лид: INSTAGRAM</b>\n`;
+
     axios
       .post(urlApi, {
         chat_id: chatId,
@@ -21,12 +15,33 @@ function Main() {
         text: message,
       })
       .then((res) => {
-        setSuccess(true);
+        console.log(res);
       })
       .catch((err) => {
-        setSuccess(false);
+        console.log(err);
       })
-      .finally(() => {});
+      .finally(() => {
+        console.log("success");
+      });
+  };
+  const sendAlert1 = () => {
+    let message = `<b>Новый лид: TELEGRAM</b>\n`;
+
+    axios
+      .post(urlApi, {
+        chat_id: chatId,
+        parse_mode: "html",
+        text: message,
+      })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        console.log("success");
+      });
   };
   return (
     <>
@@ -37,13 +52,16 @@ function Main() {
           <img src="./images/logo.png" alt="" className="ava" />
 
           <div className="dashbord">
-            <a href="https://instagram.com/amy_shop_kharkiv?igshid=MzRlODBiNWFlZA==" onClick={sendAlert("INSTAGRAM")}>
+            <a
+              href="https://instagram.com/amy_shop_kharkiv?igshid=MzRlODBiNWFlZA=="
+              onClick={sendAlert}
+            >
               <div className="button">
                 <p>INSTAGRAM</p>
                 <img src="./images/inst.png" alt="" className="ico" />
               </div>
             </a>
-            <a href="https://t.me/amy_shop_kh" onClick={sendAlert("TELEGRAM")}>
+            <a href="https://t.me/amy_shop_kh" onClick={sendAlert1}>
               <div className="button">
                 <p>TELEGRAM</p>
 
